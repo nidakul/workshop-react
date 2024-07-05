@@ -26,6 +26,10 @@ function App() {
     await axios.put(`${Base_URL}/users/${userId}`, updatedUser);
   }
 
+  const deleteUserById = async (userId) => {
+    await axios.delete(`${Base_URL}/users/${userId}`);
+  }
+
   useEffect(() => {
     // getAllUsers();
     // getUserById(1);
@@ -36,10 +40,11 @@ function App() {
     //   "password": "ayşe"
     // }
     // createUser(newUser);
-    updateUser("3", {
-      "username": "alanur",
-      "password": "alanur"
-    });
+    // updateUser("3", {
+    //   "username": "alanur",
+    //   "password": "alanur"
+    // });
+    deleteUserById("9dd1");
   }, [])
 
 
