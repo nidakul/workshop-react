@@ -17,9 +17,21 @@ function App() {
     console.log(response.data);
   }
 
+  const createUser = async (newUser) => {
+    const response = await axios.post(`${Base_URL}/users`, newUser);
+    console.log("response", response.data);
+  }
+
   useEffect(() => {
-    getAllUsers();
-    getUserById(1);
+    // getAllUsers();
+    // getUserById(1);
+
+    //json server id'yi otomatik atıyor. O yüzden yazmamıza gerek yok. 
+    const newUser = {
+      "username": "ayşe",
+      "password": "ayşe"
+    }
+    createUser(newUser);
   }, [])
 
 
