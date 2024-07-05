@@ -1,0 +1,12 @@
+.app {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.todo-create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
