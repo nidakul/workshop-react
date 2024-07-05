@@ -22,16 +22,24 @@ function App() {
     console.log("response", response.data);
   }
 
+  const updateUser = async (userId, updatedUser) => {
+    await axios.put(`${Base_URL}/users/${userId}`, updatedUser);
+  }
+
   useEffect(() => {
     // getAllUsers();
     // getUserById(1);
 
     //json server id'yi otomatik atıyor. O yüzden yazmamıza gerek yok. 
-    const newUser = {
-      "username": "ayşe",
-      "password": "ayşe"
-    }
-    createUser(newUser);
+    // const newUser = {
+    //   "username": "ayşe",
+    //   "password": "ayşe"
+    // }
+    // createUser(newUser);
+    updateUser("3", {
+      "username": "alanur",
+      "password": "alanur"
+    });
   }, [])
 
 
