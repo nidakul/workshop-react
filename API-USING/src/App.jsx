@@ -12,11 +12,6 @@ function App() {
     console.log(response.data);
   }
 
-  const getUserById = async (userId) => {
-    const response = await axios.get(Base_URL + "/users/" + userId);
-    console.log(response.data);
-  }
-
   const createUser = async (newUser) => {
     const response = await axios.post(`${Base_URL}/users`, newUser);
     console.log("response", response.data);
@@ -28,6 +23,23 @@ function App() {
 
   const deleteUserById = async (userId) => {
     await axios.delete(`${Base_URL}/users/${userId}`);
+  }
+
+  const getUserById = async (userId) => {
+    const response = await axios.get(Base_URL + "/users/" + userId);
+    return (response.data.postId);
+  }
+
+  const getPostById = async (postId) => {
+    const response = await axios.get("https://jsonplaceholder.typicode.com/posts/" + postId)
+    return response.data;
+  }
+
+  const getPost = async () => {
+    const postId = await getUserById(1);
+    console.log(postId);
+    const postData = await getPostById(postId);
+    console.log(postData);
   }
 
   useEffect(() => {
@@ -44,7 +56,8 @@ function App() {
     //   "username": "alanur",
     //   "password": "alanur"
     // });
-    deleteUserById("9dd1");
+    // deleteUserById("9dd1");
+    getPost();
   }, [])
 
 
