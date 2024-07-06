@@ -4,10 +4,11 @@ import { FaEdit } from "react-icons/fa";
 import "../App.css"
 
 
-const Todo = () => {
+const Todo = ({ todo }) => {
+    const { id, content } = todo;
     return (
         <div className='todo'>
-            <div>ilk</div>
+            <div>{content}</div>
             <div>
                 <IoIosRemoveCircle className='todo-icons' />
                 <FaEdit className='todo-icons' />
@@ -16,4 +17,4 @@ const Todo = () => {
     )
 }
 
-export default Todo
+export default Todo  

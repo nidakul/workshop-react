@@ -3,12 +3,15 @@ import Todo from './Todo'
 import "../App.css"
 
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
     return (
         <div className='todo-list'>
-            <Todo />
+            {todos && todos.map((todo) => (
+                <Todo key={todo.id} todo={todo} />
+            ))}
         </div>
+
     )
 }
 
-export default TodoList
+export default TodoList  

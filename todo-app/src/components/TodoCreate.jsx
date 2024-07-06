@@ -6,6 +6,10 @@ const TodoCreate = ({ onCreateTodo }) => {
 
     const [newTodo, setNewTodo] = useState([]);
 
+    const clearInput = () => {
+        setNewTodo('');
+    }
+
     const createTodo = () => {
         if (!newTodo) return; //eğer kullanıcı input girmeden butona basarsa bir işlem yapma
         const request = {
@@ -13,6 +17,7 @@ const TodoCreate = ({ onCreateTodo }) => {
             content: newTodo
         }
         onCreateTodo(request);
+        clearInput();
     }
     return (
         <div className='todo-create'>
