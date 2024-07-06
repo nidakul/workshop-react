@@ -3,11 +3,11 @@ import Todo from './Todo'
 import "../App.css"
 
 
-const TodoList = ({ todos, onRemoveTodo }) => {
+const TodoList = ({ todos, onRemoveTodo, onUpdateTodo }) => {
     return (
         <div className='todo-list'>
             {todos && todos.map((todo) => (
-                <Todo key={todo.id} todo={todo} onRemoveTodo={onRemoveTodo} />
+                <Todo key={todo.id} todo={todo} onRemoveTodo={onRemoveTodo} onUpdateTodo={onUpdateTodo} />
             ))}
         </div>
 
