@@ -28,7 +28,7 @@ export const basketSlice = createSlice({
                 state.products = [...extractedProducts, findProduct];
                 writeFromBasketToStorage(state.products);
             } else {
-                state.products = [state.products, action.payload];
+                state.products = [...state.products, action.payload];
                 writeFromBasketToStorage(state.products);
             }
 
