@@ -4,12 +4,14 @@ import { useParams } from 'react-router-dom';
 import { setSelectedProduct } from '../redux/slices/productSlice';
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
+import { addToBasket } from '../redux/slices/basketSlice';
 
 const ProductDetails = () => {
     const { id } = useParams();
     const { products, selectedProduct } = useSelector((store) => store.product)
     const { price, image, title, description } = selectedProduct;
     const [count, setCount] = useState(0);
+    const dispatch = useDispatch();
 
     const increment = () => {
         setCount(count + 1);
@@ -19,7 +21,17 @@ const ProductDetails = () => {
         setCount(count - 1);
     }
 
-    const dispatch = useDispatch();
+    const addBasket = () => {
+        const payload = {
+            id, //iki taraf aynıysa id: id şeklinde yazmasakta olur
+            price,
+            image,
+            description,
+            title,
+            count
+        }
+        dispatch(addToBasket(payload));
+    }
 
     const getProductById = () => {
         products && products.map((product) => {
@@ -48,7 +60,7 @@ const ProductDetails = () => {
                         <CiCircleMinus onClick={decrement} style={{ fontSize: '40px', marginLeft: '5px' }} />
                     </div>
                     <div>
-                        <button style={{ marginTop: '25px', border: 'none', padding: '10px', backgroundColor: 'rgb(185,76,76)', borderRadius: '5px', cursor: 'pointer', color: '#fff' }}>Sepete Ekle</button>
+                        <button style={{ marginTop: '25px', border: 'none', padding: '10px', backgroundColor: 'rgb(185,76,76)', borderRadius: '5px', cursor: 'pointer', color: '#fff' }} onClick={addBasket}>Sepete Ekle</button>
                     </div>
                 </div>
             </div>
