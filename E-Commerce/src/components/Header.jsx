@@ -3,15 +3,17 @@ import "../css/header.css";
 import { CiShoppingBasket } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
 import { IoMoon } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const [theme, setTheme] = useState(false);
+    const navigate = useNavigate();
 
     const changeTheme = () => {
         const root = document.getElementById("root");
         if (theme) {
             root.style.backgroundColor = 'black';
-            root.style.color = '#fff'; 
+            root.style.color = '#fff';
         } else {
             root.style.backgroundColor = '#fff';
             root.style.color = 'black';
@@ -20,7 +22,7 @@ const Header = () => {
     }
     return (
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div className='flex-row'>
+            <div className='flex-row' onClick={() => navigate("/")}>
                 <img className='logo' src="./src/images/logo.png" />
                 <p className='logo-text'>NIDA A.Ş</p>
             </div>
