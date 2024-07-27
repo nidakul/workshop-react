@@ -5,18 +5,20 @@ import Loading from './components/Loading'
 import RouterConfig from './config/RouterConfig'
 import PageContainer from './container/PageContainer'
 import Drawer from '@mui/material/Drawer';
-import { calculateBasket, setDrawer } from './redux/slices/basketSlice'
-import { useEffect } from 'react'
+import { calculateBasket, removeToBasket, setDrawer } from './redux/slices/basketSlice'
+import { useEffect, useState } from 'react'
 
 
 function App() {
   const { products, drawer, totalAmount } = useSelector((store) => store.basket);
   const dispatch = useDispatch();
-  console.log(products);
+  const [selectedProductId, setSelectedProductId] = useState();
+  console.log(selectedProductId);
 
   useEffect(() => {
+    dispatch(removeToBasket(selectedProductId));
     dispatch(calculateBasket());
-  }, [])
+  }, [selectedProductId])
 
   return (
     <div>
@@ -37,7 +39,7 @@ function App() {
                     }} src={product.image} width={50} height={50} />
                     <p style={{ width: '320px' }}>{product.title}({product.count})</p>
                     <p style={{ fontWeight: 'bold', marginRight: '10px', width: '60px' }}>{product.price}TL</p>
-                    <button className='delete-btn'>sil</button>
+                    <button onClick={() => setSelectedProductId(product.id)} className='delete-btn'>sil</button>
                   </div>
                 </div>
               )
