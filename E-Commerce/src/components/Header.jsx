@@ -5,11 +5,14 @@ import { CiLight } from "react-icons/ci";
 import { IoMoon } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Drawer from '@mui/material/Drawer';
+import { setDrawer } from '../redux/slices/basketSlice';
 
 const Header = () => {
     const [theme, setTheme] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const { products } = useSelector((store) => store.basket)
 
     const changeTheme = () => {
@@ -34,12 +37,13 @@ const Header = () => {
                 <input className='search-input' type='text' placeholder='arama' />
                 <div>
                     {theme ? <IoMoon className='icon' onClick={changeTheme} /> : <CiLight className='icon' onClick={changeTheme} />}
-                    <Badge badgeContent={products.length} color="error">
+                    <Badge onClick={() => dispatch(setDrawer())} badgeContent={products.length} color="error">
                         <CiShoppingBasket style={{ marginRight: '6px' }} className='icon' />
                     </Badge>
                 </div>
+
             </div>
-        </div>
+        </div >
     )
 }
 

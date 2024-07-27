@@ -20,3 +20,12 @@ body {
 #root {
     height: 100vh;
 }
+
+.delete-btn {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(185, 76, 76);
+    border: none;
+    color: #fff;
+    width: 45px;
+}
