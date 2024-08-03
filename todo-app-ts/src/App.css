@@ -33,3 +33,12 @@ body {
   cursor: pointer;
   margin-top: 10px;
 }
+
+.icon-remove {
+  font-size: 22px;
+  margin-right: 5px;
+}
+
+.icon-edit {
+  font-size: 22px;
+}
