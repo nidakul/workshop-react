@@ -1,11 +1,19 @@
 import React from 'react'
 import Todo from './Todo'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
+import { TodoType } from '../types/Types'
 
 type Props = {}
 
 const TodoList = (props: Props) => {
+    const { todos } = useSelector((state: RootState) => state.todo)
     return (
-        <div><Todo /></div>
+        <div>
+            {todos && todos.map((todo: TodoType) => (
+                <Todo key={todo.id} todoProps={todo} />
+            ))}
+        </div>
     )
 }
 
