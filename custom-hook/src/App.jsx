@@ -4,10 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import useCounter from './hooks/useCounter'
 import useToggle from './hooks/useToggle'
+import useCopyToClipboard from './hooks/useCopyToClipboard'
 
 function App() {
   const { count, increase, decrease } = useCounter();
   const { open, change } = useToggle();
+  const [copied, copy] = useCopyToClipboard("Pes Etme Çalış!")
 
   return (
     <>
@@ -17,6 +19,9 @@ function App() {
       {/* **************** */}
       {/* {open && <div style={{ width: '100px', height: '100px', backgroundColor: 'red' }} />}
       <button onClick={change}>{open ? 'Gizle' : 'Göster'}</button> */}
+      {/* **************** */}
+      {copied && 'kopyalandı'}
+      <button onClick={copy}>Kopyala</button>
     </>
   )
 }
