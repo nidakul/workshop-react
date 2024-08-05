@@ -11,7 +11,7 @@ const TodoCreate = (props: Props) => {
 
     const handleCreateTodo = () => {
         if (newTodo.trim().length == 0) {
-            alert("todo girini<!");
+            alert("todo giriniz!");
             return;
         }
 
