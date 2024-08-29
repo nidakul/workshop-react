@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/nidakul/workshop-react/main/todo-app/public/todo-app.png" />
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
