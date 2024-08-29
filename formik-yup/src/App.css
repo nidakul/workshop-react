@@ -48,3 +48,8 @@ input {
     align-items: flex-start;
     justify-content: flex-start;
 }
+
+.input-error {
+    font-size: 15px;
+    color: rgb(200, 13, 13);
+}
