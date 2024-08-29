@@ -1,11 +1,12 @@
 import './App.css'
+import RegisterForm from './components/RegisterForm'
 
 function App() {
 
   return (
-    <>
-      Formik
-    </>
+    <div className='App'>
+      <RegisterForm />
+    </div>
   )
 }
 
