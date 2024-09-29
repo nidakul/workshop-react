@@ -2,6 +2,7 @@ import './App.css'
 import MUIAutoComplete from './components/MUIAutoComplete'
 import MUIBox from './components/MUIBox'
 import MUIButton from './components/MUIButton'
+import MUICard from './components/MUICard'
 import MUICheckbox from './components/MUICheckbox'
 import MUIGrid from './components/MUIGrid'
 import MUISelect from './components/MUISelect'
@@ -19,7 +20,8 @@ function App() {
       {/* <MUIAutoComplete /> */}
       {/* <MUIBox /> */}
       {/* <MUIStack /> */}
-      <MUIGrid />
+      {/* <MUIGrid /> */}
+      <MUICard />
     </div>
   )
 }
